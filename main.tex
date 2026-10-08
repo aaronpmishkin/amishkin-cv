@@ -1,0 +1,514 @@
+%! TEX TS-program = xelatex
+
+\documentclass[11pt, a4paper]{article}
+\usepackage[a4paper, left=15mm,right=15mm,bottom=20mm,top=20mm]{geometry}
+
+\usepackage{float}
+\usepackage{framed}
+\usepackage{authoraftertitle}
+\usepackage{fontspec}
+
+\defaultfontfeatures{Ligatures=TeX}
+\setmainfont{Times New Roman}
+\newfontfamily\calibri{Calibri}
+
+
+% silence annoying warnings
+\usepackage{silence}
+\WarningFilter{remreset}{The remreset package}
+
+% formatting
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+
+\usepackage{lastpage}
+\usepackage[table, dvipsnames]{xcolor}
+\definecolor{MSCAblue}{rgb}{0.36,0.61,0.84} % 91,155,213
+\definecolor{MSCAgray}{rgb}{0.5,0.5,0.5} % 91,155,213
+\definecolor{MSCAlightgray}{rgb}{0.71,0.71,0.71} % 91,155,213
+
+% configure header
+\pagestyle{fancy}
+\fancyhead[L]{Aaron Mishkin}
+\fancyhead[R]{\href{mailto:aaron.mishkin@epfl.ch}{\texttt{aaron.mishkin@epfl.ch}}}
+\fancyfoot[C]{Page \thepage{} of~\pageref{LastPage}}
+
+% section formatting
+\usepackage{titlesec}
+
+\titleformat*{\section}{\large\bfseries\itshape}
+\titleformat*{\subsection}{\normalsize\itshape}
+\titleformat{\subsubsection}[runin]{\itshape}{\thesubsubsection.}{1em}{}{}
+
+% remove header lines
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\headheight}{14pt}
+
+% don't insert double spaces after sentences 
+\frenchspacing
+
+\makeatletter
+\def\@makefnmark{%
+  \leavevmode
+  \raise.9ex\hbox{\fontsize\sf@size\z@\normalfont\tiny\@thefnmark}}
+\makeatother
+
+% algorithm environments
+\usepackage[ruled, vlined]{algorithm2e} % algorithm environments 
+
+% no semi-colons at the end of lines
+\DontPrintSemicolon{}
+% margins
+\setlength{\algomargin}{1em}
+
+%%  math symbols
+\usepackage{amsmath}    % ams math
+\usepackage{amssymb}    % ^^ 
+\usepackage{amsthm}     % ^^
+\usepackage{mathtools}  % additional tools
+\usepackage{centernot}  % nice /not commands
+\usepackage{xfrac}      % nice fractions
+\usepackage{bbm}        % indicators
+\usepackage[normalem]{ulem}       % underlines with line breaking
+\usepackage{booktabs}
+
+\usepackage[inline]{enumitem}   % better enums
+\PassOptionsToPackage{hyphens}{url}\usepackage[
+	colorlinks = true,
+	linkcolor = black,
+    urlcolor  = blue,
+	citecolor=green,
+]{hyperref}
+\usepackage{xurl}
+\usepackage[noabbrev, capitalize]{cleveref}   % internal referencing
+
+\usepackage{parskip}    % paragraph formatting
+
+%% load macros and pre-defined symbols
+\input{macros/math}
+%% macros for paragraph mode
+\input{macros/paragraph}
+
+% CV settings
+\usepackage{enumitem}
+\usepackage{multicol}
+
+\makeatletter
+\gdef\tshortstack{\@ifnextchar[\@tshortstack{\@tshortstack[c]}}
+\gdef\@tshortstack[#1]{%
+  \leavevmode
+  \vtop\bgroup
+    \baselineskip-\p@\lineskip 3\p@
+    \let\mb@l\hss\let\mb@r\hss
+    \expandafter\let\csname mb@#1\endcsname\relax
+    \let\\\@stackcr
+    \@ishortstack}
+\makeatother
+
+\newcommand{\mute}[1]{}
+\newcommand{\mitem}[1]{\item[\smash{\tshortstack[l]{#1}}]}
+\newcommand{\mleftsize}{4.75em}
+\newcommand{\mleftsizesmall}{3.5em}
+
+%% (optional) load tikz and PGFplots
+% \input{macros/plots}
+
+%--------------------SECTIONS-----------------------------------
+\newenvironment{fourtable}{%
+    \begin{tabular}{p{.15\textwidth}p{.445\textwidth}p{.145\textwidth}p{.15\textwidth}}%
+}{%
+    \end{tabular}%
+}
+
+\newenvironment{threetable}{%
+    \begin{tabular}{p{.62\textwidth}p{.145\textwidth}p{.155\textwidth}}%
+}{%
+    \end{tabular}%
+}
+\newenvironment{threetableother}{%
+    \begin{tabular}{p{.205\textwidth}p{.56\textwidth}p{.14\textwidth}}%
+}{%
+    \end{tabular}%
+}
+\newenvironment{twotable}{%
+    \begin{tabular}{p{.205\textwidth}p{.72\textwidth}}%
+}{%
+    \end{tabular}%
+}
+
+\begin{document}\thispagestyle{empty}
+
+\titlespacing*{\section}{0pt}{2.0ex}{2.0ex}
+\titlespacing*{\subsection}{0pt}{2.0ex}{2.0ex}
+
+\begin{minipage}[c]{0.3\linewidth}
+    {\Large\textbf{Aaron Mishkin}}
+    \vspace{3ex}
+\end{minipage}%
+\hfill%
+\begin{minipage}[c]{0.6\linewidth}
+    \hfill
+    \begin{tabular}{ll}
+        \href{mailto:aaron.mishkin@epfl.ch}{\texttt{aaron.mishkin@epfl.ch}}                        \\[-.25em]
+        \href{https://people.epfl.ch/aaron.mishkin}{\texttt{https://people.epfl.ch/aaron.mishkin}} \\[-.25em]
+        \href{https://cs.stanford.edu/~amishkin/}{\texttt{https://cs.stanford.edu/{\textasciitilde}amishkin/}}
+    \end{tabular}
+\end{minipage}
+
+\vspace{-1ex}
+\section{Employment}
+
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \mitem{2026 --
+   \\[.25em] Current }
+    \textbf{Postdoctoral Researcher} \hfill (started 2026--10--01)\\
+    École Polytechnique Fédérale de Lausanne (EPFL), Switzerland\\
+    Advisor: Martin Jaggi
+\end{description}
+
+\section{Education}
+
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \mitem{2026}
+    \textbf{PhD. in Computer Science} \hfill Oral Defense 2025--11--18\\
+    Stanford University, USA \hfill Degree conferred 2026--04--02\\
+    Thesis: \emph{Convex Analysis of Non-Convex Neural Networks}\\
+    Advisor: Mert Pilanci
+
+    \mitem{2020}
+    \textbf{MSc. in Computer Science} \hfill Degree conferred 2020--11--01\\
+    University of British Columbia, Canada	\\
+    Thesis: \emph{Interpolation, Growth Conditions, and Stochastic Gradient Descent} \\
+    Advisor: Mark Schmidt
+
+    \mitem{2018}
+    \textbf{BSc. in Computer Science} \hfill Degree conferred 2018--05--01\\
+    University of British Columbia, Canada \\
+    Advisor: David Poole
+\end{description}
+
+\subsection{Research Experience}
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \item[2025]
+          \textbf{Research Intern}, The Voleon Group, USA  \hfill (2025--05--13 to 2025--08--01)
+          \\
+          Advisors: Sahand Negahban and Deepak Rajan
+    \item[2024]
+          \textbf{Visiting PhD Student}, Inria Sierra Team, France \hfill (2024--07--01 to 2024--12--31)
+          \\
+          Advisor: Francis Bach
+    \item[2023]
+          \textbf{Predoctoral Researcher}, Flatiron Institute, USA \hfill (2023--06--01 to 2023--08--11)
+          \\
+          Advisors: Robert Gower and Alberto Bietti
+    \item[2019]
+          \textbf{Applied Science Intern}, Amazon Development Centre Berlin, Germany \hfill (2019--05--01 to 2019--08--31)
+          \\
+          Advisors: Cédric Archambeau and Matthias Seeger
+    \item[2018]
+          \textbf{Research Intern}, RIKEN AIP Centre, Japan \hfill (2018--01--01 to 2019--06--31)
+          \\
+          Advisors: Emtiyaz Khan
+\end{description}
+
+\subsection{Other Experience}
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \item[2017]
+          \textbf{NSERC Undergraduate Research Assistant}, UBC, Canada  \hfill (2017--05--01 to 2017--08--31)
+          \\
+          Advisors: David Poole and Giuseppe Carenini
+    \item[2016]
+          \textbf{NSERC Undergraduate Research Assistant}, UBC, Canada  \hfill (2016--05--01 to 2016--08--31)
+          \\
+          Advisors: David Poole and Giuseppe Carenini
+    \item[2015]
+          \textbf{Co-op Student}, MacDonald, Detwiler, and Associates, Canada \hfill (2015--05--01 to 2015--12--31)
+\end{description}
+
+\section{Publications
+  \texorpdfstring{\hfill {\normalfont\small * denotes equal contribution.}}{}
+ }
+
+\subsection{In Preparation}
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \mitem{2026}
+    \textit{Analyzing and Improving Greedy 2-Coordinate Updates for
+        Equality-Constrained Optimization via Steepest Descent in the 1-Norm.}\\
+    A. V. Ramesh$^{*}$, \textbf{A. Mishkin}$^{*}$, M. Schmidt, Y. Zhou, J. W.
+    Lavington, and J. She\\
+    In preparation.
+    %\href{https://arxiv.org/abs/2402.19449}{arxiv:2402.19449}
+\end{description}
+
+\subsection{Refereed Papers}
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \mitem{2026\\[.25em] TMLR}
+    \textit{Glocal Smoothness: Line search and adaptive sizes can help in theory too!}\\
+    C. Fox, \textbf{A. Mishkin}, S. Vaswani, M. Schmidt\\
+    Transactions on Machine Learning Research (TMLR) 2026
+
+    \mitem{2026\\[.25em] SIMODS}
+    \textit{A Library of Mirrors: Deep Neural Nets in Low Dimensions are Convex
+        Lasso Models with Reflection Features.}\\
+    E. Zeger, Y. Wang, \textbf{A. Mishkin}, T. Ergen, E. Candès, M.  Pilanci\\
+    SIAM Journal on Mathematics of Data Science (SIMODS) 2026
+
+    \mitem{2025\\[.25em] AISTATS}
+    \textit{Level Set Teleportation: An Optimization Perspective}\\
+    {\bf A. Mishkin}, A. Bietti, R. M. Gower\\
+    International Conference on Artificial Intelligence and Statistics (AISTAT) 2025
+    \hfill
+
+    \mitem{2025\\[.25em] ICLR}
+    \textit{Exploring the Loss Landscape of Regularized Neural Networks via Convex Duality}
+    \hfill {\bf Oral}
+    \\
+    S. Kim, {\bf A. Mishkin}, M. Pilanci\\
+    International Conference on Learning Representations (ICLR) 2025
+
+    \mitem{2024\\[.25em] NeurIPS}
+    \textit{Directional Smoothness and Gradient Methods: Convergence and Adaptivity}\\
+    {\bf A. Mishkin}$^*$, A. Khaled$^*$, Y. Wang, A. Defazio, R. M. Gower\\
+    Advances in Neural Information Processing Systems (NeurIPS) 2024
+
+    \mitem{2023\\[.25em] ICML}
+    \textit{Optimal Sets and Solution Paths of ReLU Networks}\\
+    {\bf A. Mishkin}, M. Pilanci\\
+    International Conference on Machine Learning (ICML) 2023
+
+    \mitem{2022\\[.25em] ICML}
+    \textit{Fast Convex Optimization for Two-Layer ReLU Networks}\\
+    {\bf A. Mishkin}, A. Sahiner, M. Pilanci\\
+    International Conference on Machine Learning (ICML) 2022
+
+    \mitem{2019\\[.25em] NeurIPS}
+    \textit{Painless Stochastic Gradient: Interpolation, Line-Search, and Convergence Rates}\\
+    S. Vaswani, {\bf A. Mishkin}, I. H. Laradji, M. Schmidt, G. Gidel, S. Lacoste-Julien\\
+    Advances in Neural Information Processing Systems (NeurIPS) 2019
+
+    \mitem{2018\\[.25em] NeurIPS}
+    \textit{SLANG: Fast Structured Covariance Approximations for Bayesian Deep Learning with Natural Gradient}\\
+    {\bf A. Mishkin*}, F. Kunstner*, D. Nielsen, M. Schmidt, M.E. Khan\\
+    Advances in Neural Information Processing Systems (NeurIPS) 2018
+\end{description}
+
+\subsection{Book Chapters}
+
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \mitem{2022\\[.25em]}
+    %Contribution to book chapter\\
+    \textit{Probabilistic Machine Learning: An Introduction}, K.P. Murphy, MIT Press, March 2022.\\
+    Contributors: F. Kunstner, S.Y. Meng, \textbf{A. Mishkin}, S. Vaswani, M. Schmidt.\\
+    Relevant Section: Chapter 8, \textit{Optimization}.
+\end{description}
+
+\subsection{Workshop Papers}
+
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \mitem{2023\\[.25em] OptML}
+    \textit{A Novel Analysis of Gradient Descent under Directional Smoothness}\\
+    {\bf A. Mishkin}$^*$, A. Khaled$^*$, A. Defazio, R. M. Gower\\
+    {NeurIPS Workshop on Optimization for Machine Learning} 2023
+
+    \mitem{2023\\[.25em] OptML}
+    \textit{Level Set Teleportation: the Good, the Bad, and the Ugly}\\
+    \textbf{A Mishkin}, A. Bietti, R. M. Gower\\
+    {NeurIPS Workshop on Optimization for Machine Learning} 2023
+    % (\href{https://openreview.net/forum?id=7Ie3aoqJg1}{openreview:7Ie3aoqJg1})
+
+    \mitem{2022\\[.25em] OptML}
+    {\it The Solution Path of the Group Lasso}\\
+    \textbf{A. Mishkin}, M. Pilanci\\
+    {NeurIPS Workshop on Optimization for Machine Learning} 2022
+
+    \mitem{2022\\[.25em] OptML}
+    {\it Fast Convergence of Greedy 2-Coordinate Update for Optimizing with an Equality Constraint}\\
+    A. V. Ramesh, {\bf A. Mishkin}, Mark Schmidt\\
+    {NeurIPS Workshop on Optimization for Machine Learning} 2022
+    % (\href{https://arxiv.org/abs/2304.13960}{arxiv:2304.13960})
+
+    \mitem{2020\\[.25em] OptML}
+    {\it To Each Optimizer a Norm, to Each Norm its Generalization}\\
+    S. Vaswani, R. Babanezhad, J. Gallego, {\bf A. Mishkin}, S. Lacoste-Julien, N. Le Roux\\
+    {NeurIPS Workshop on Optimization for Machine Learning} 2020
+\end{description}
+
+\section{Awards}
+
+\subsection{Grants \& Fellowships}
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    % https://aistats.org/aistats2021/awards.html
+    \item[2026]
+          Canada Postgraduate Research Award Program (PDRA)
+          \hfill (Declined) \$140,000 CAD\\
+          Natural Sciences and Engineering Research Council (NSERC) of Canada
+    \item[2026]
+          \textit{Postdoctoral Research Associateship}
+          \hfill (Declined) \pounds83,272 GBP\\
+          Mathematical Institute, University of Oxford
+    \item[2024] Visiting Student Researcher Fellowship, \hfill \$7,200 USD\\
+          France-Stanford Center For Interdisciplinary Studies
+    \item[2020] Graduate Research Fellowship Program (GRFP) \hfill \$138,000 USD\\
+          National Sciences Foundation (NSF), USA
+    \item[2020] Postgraduate Scholarships-Doctoral Program \hfill \$66,000 CAD\\
+          Natural Sciences and Engineering Research Council (NSERC) of Canada
+    \item[2020] Canada Postgraduate Scholarships-Doctoral Program \hfill (Declined) \$105,000 CAD\\
+          Natural Sciences and Engineering Research Council (NSERC) of Canada
+    \item[2019] Huawei Graduate Scholarship \hfill \$5,000 CAD\\
+          Department of Computer Science, University of British Columba
+    \item[2018] Computer Science Merit Scholarship \hfill \$20,000 CAD\\
+          Department of Computer Science, University of British Columba
+    \item[2018] Alexander Graham Bell Canada Graduate Scholarships-Master's \hfill \$17,500 CAD\\
+          Natural Sciences and Engineering Research Council of Canada (NSERC)
+\end{description}
+
+\subsection{Scholarships \& Prizes}\nobreak
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \item[2025] Best Poster\\
+          ICCOPT 2025
+    \item[2018] Academic Award of Excellence (Honors)\\
+          Department of Computer Science, University of British Columba
+    \item[2018] Markus Meister Memorial Prize\\
+          Department of Computer Science, University of British Columba
+    \item[2018] Travel Award\\
+          NeurIPS Foundation
+    \item[2017] D. F. MacKenzie Scholarship\\
+          University of British Columba
+    \item[2017] Undergraduate Student Research Award\\
+          Natural Sciences and Engineering Research Council of Canada (NSERC)
+    \item[2017] Trek Excellence Scholarship for Continuing Students\\
+          University of British Columba
+    \item[2016] Best Demo\\
+          UBC HCI Designing for People Year-end Event
+    \item[2016] Undergraduate Student Research Award\\
+          Natural Sciences and Engineering Research Council of Canada (NSERC)
+    \item[2016] Trek Excellence Scholarship for Continuing Students\\
+          University of British Columba
+    \item[2016] J. Fred Muir Memorial Scholarship\\
+          University of British Columba
+\end{description}
+
+\subsection{Awards for Service} \hfill
+
+\vspace{-3ex}
+\subsubsection{Outstanding Reviewer Awards}
+
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \item[ICML] 2021, 2022, 2024, 2025
+    \item[NeurIPS] 2020, 2022, 2023, 2025
+    \item[ICLR] 2022
+    \item[AISTATS] 2022, 2025
+    \item[TMLR] Expert Reviewer Since 2024
+\end{description}
+
+\section{Invited Talks and Visits}
+\newcommand{\where}[1]{{#1}}
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \item[2026] Global Optimization of Deep Relu Networks Using Convex Reformulations. \hfill Endinburgh, UK \\
+          SIAM Conference on Optimization (OP26)
+
+    \item[2026] Convex Analysis of Non-Convex Neural Networks.  \hfill Oxford, UK\\
+          Mathematical Institute, University of Oxford
+
+    \item[2026] Level Set Teleportation: An Optimization Perspective.  \hfill Lausanne, Switzerland\\
+          MLO Lab, EPFL
+
+    \item[2026] Convex Analysis of Non-Convex Neural Networks. \hfill Paris, France\\
+          Sierra Team, Inria
+
+    \item[2025] Optimal Sets and Solution Paths of ReLU Networks. \hfill Berkeley, USA\\
+          SIAM NCC25
+
+    \item[2025] Level Set Teleportation: An Optimization Perspective. \hfill Montreal, Canada\\
+          Montreal MLOpt Seminar, Mila
+
+    \item[2024] Optimal Sets and Solution Paths of ReLU Networks. \hfill Lausanne, Switzerland\\
+          MLO lab, EPFL
+
+    \item[2024] Level Set Teleportation: An Optimization Perspective. \hfill Tübingen, Germany\\
+          MPI Intelligent Systems and ELLIS Institute
+
+    \item[2024] Optimal Sets and Solution Paths of ReLU Networks. \hfill Virtual\\
+          Math Machine Learning Seminar MPI MIS + UCLA
+
+    \item[2023] SGD Under Interpolation: Convergence, Line-search, and Acceleration. \hfill Seattle, USA\\
+          SIAM Conference on Optimization (OP23)
+
+    \item[2022] Fast Convex Optimization for Two-Layer ReLU Networks. \hfill Vancouver, Canada\\
+          UBC Institute for Applied Mathematics (IAM)
+
+    \item[2020] Painless Stochastic Gradient: Interpolation, Line-Search, and Convergence Rates. \hfill Virtual\\
+          Machine Learning Summer School (MLSS) 202University of British Columbia\end{description}
+
+\section{Service}
+
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \item[2026] \textbf{Organizer}, Minisymposium on Global Optimization for Neural Networks \\
+          SIAM Conference on Optimization (OP26)
+    \item[2024] \textbf{Organizer}, ``Optimization Lunch'' Talk Series\\
+          Department of Electrical Engineering, Stanford University
+    \item[2019] \textbf{Organizer}, Machine Learning Reading Group (MLRG)\\
+          Department of Computer Science, University of British Columbia
+\end{description}
+
+\section{Volunteering}
+
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \item[2025] Stanford SERIO Mentorship Program
+    \item[2025] Stanford CS Undergraduate Mentorship Program
+    \item[2025] Stanford Science Penpals Program
+    \item[2024] Stanford SERIO Mentorship Program
+    \item[2024] Stanford CS Undergraduate Mentorship Program
+    \item[2024] Stanford Student Application Support Program
+\end{description}
+
+\section{Reviewing}
+\begin{description}[leftmargin=10em,style=nextline,font=\normalfont\space]
+    % \begin{description}[leftmargin=10em]
+    \item[NeurIPS] Neural Information Processing Systems (NeurIPS)\hfill 2019--2025
+    \item[ICML] International Conference on Machine Learning (ICML) \hfill 2021--2025
+    \item[ICLR] International Conference on Learning Representations \hfill 2022
+    \item[AISTATS] International Conference on Artificial Intelligence and Statistics \hfill 2022--2025
+    \item[TMLR] Transactions on Machine Learning Research \hfill 2023--2025
+    \item[JMLR] Journal of Machine Learning Research \hfill 2021, 2022
+    \item[Trans. Inf. Theory] IEEE Transactions on Information Theory \hfill 2024
+    \item[SIMODS] SIAM Journal on Mathematics of Data Science \hfill 2023
+    \item[OptML workshop] NeurIPS workshop: Optimization for Machine Learning \hfill 2023, 2024
+\end{description}
+
+\section{Teaching Assistantships}
+
+\begin{itemize}[leftmargin=0pt,label={}]%,parsep=3pt,itemsep=0pt,topsep=0pt,partopsep=0pt,]
+    \item EE 364B: {\it Convex Optimization II},
+          Stanford University
+          \hfill \mute{Spring } 2022, 2023, 2024, 2025
+
+    \item \emph{Workshop on Bayesian Machine Learning}, Data Science Summer School (D3)
+          % (Mark Schmidt)
+          \hfill  2018
+
+    \item CPSC 340: {\it Machine Learning},
+          University of British Columbia
+          \hfill \mute{Fall }2017
+
+    \item CPSC 210: {\it Software Construction},
+          University of British Columbia
+          \hfill \mute{Fall }2015
+
+    \item CPSC 210: {\it Computation, Programs, and Programming},
+          University of British Columbia
+          \hfill \mute{Fall }2014
+\end{itemize}
+
+\section{Open Source Software}
+\begin{description}[leftmargin=6.5em,style=nextline,font=\normalfont\space]
+    \item[SCNN]
+          A library for global optimization of two-layer ReLU networks using
+          convex reformulations.
+          \\
+          \texttt{\url{https://github.com/pilancilab/scnn}}
+\end{description}
+
+\end{document}
+

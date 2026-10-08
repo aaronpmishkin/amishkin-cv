@@ -1,633 +1,474 @@
-%! TEX TS-program = xelatex
+%!TEX root = ../main.tex
 
-\documentclass[10pt]{article}
-\usepackage[left=1.4in,right=1.4in,bottom=1in,top=1in]{geometry} % set margins
-% \usepackage{fontspec} 						%for loading fonts
-% fonts
-\usepackage{helvet}
-% \usepackage[T1]{fontenc}
+\titlespacing*{\section}{0pt}{2.0ex}{2.0ex}
+\titlespacing*{\subsection}{0pt}{2.0ex}{2.0ex}
 
-\usepackage{array}
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+{\large\textbf{Aaron Mishkin}}
+\hfill
+\begin{tabular}{ll}
+    %\normalsize \today\\[-.5em]
+    \normalsize \href{mailto:aaronpmishkin@gmail.com}{\texttt{aaronpmishkin@gmail.com}} \\[-.25em]
+    \normalsize \href{https://cs.stanford.edu/~amishkin/}{\texttt{https://cs.stanford.edu/{\textasciitilde}amishkin/}}
+\end{tabular}
 
-%A Few Useful Packages
-\usepackage{marvosym}
-\usepackage{fontspec} 					    %for loading fonts
-\usepackage{xunicode,xltxtra,url,parskip} 	%other packages for formatting
-\RequirePackage{color,graphicx}
-\usepackage[usenames,dvipsnames]{xcolor}
-% \usepackage[big]{layaureo} 					%better formatting of the A4 page
-% an alternative to Layaureo can be ** \usepackage{fullpage} **
-% \usepackage{supertabular} 					%for Grades
-\usepackage{titlesec}						%custom \section
-%Setup hyperref package, and colours for links
-\usepackage{hyperref}
-\definecolor{linkcolour}{rgb}{0,0.2,0.6}
-\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour, linkcolor=linkcolour}
-\usepackage{longtable}
-\usepackage{supertabular} 				%for Grades
-
-%FONTS
-\defaultfontfeatures{Mapping=tex-text}
-% \setmainfont[SmallCapsFont = Fontin SmallCaps]{Fontin.otf}
-% modified for Karol Kozioł for ShareLaTeX use
-% \setmainfont[
-% SmallCapsFont = Fontin-SmallCaps.otf,
-% BoldFont = Fontin-Bold.otf,
-% ItalicFont = Fontin-Italic.otf
-% ]
-% {Fontin.otf}
-
-% try lato:
-
-\setmainfont[
-	% SmallCapsFont = Fontin-SmallCaps.otf,
-	BoldFont = Lato-Bold.ttf,
-	ItalicFont = Lato-Italic.ttf
-]{Lato-Regular.ttf}
-
-\newcommand{\spacing}{\vspace{0.5cm}}
-
-\newcounter{talkcounter}
-\setcounter{talkcounter}{1}
-\newcommand{\talknum}[0]{[\thetalkcounter]\stepcounter{talkcounter}}
-
-%%%
-
-%CV Sections inspired by:
-%http://stefano.italians.nl/archives/26
-\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
-\titlespacing{\section}{0pt}{3pt}{3pt}
-%Tweak a bit the top margin
-%\addtolength{\voffset}{-1.3cm}
-
-% TODO: Remove this?
-%--------------------BEGIN DOCUMENT----------------------
-
-\begin{document}
-
-%\pagestyle{empty} % non-numbered pages
-
-\font\fb=''[cmr10]'' %for use with \LaTeX command
-
-%--------------------TITLE-------------
-\par{\centering
-{\Huge Aaron Mishkin} \par \vspace{0.25cm}
-{\href{mailto:amishkin@cs.stanford.edu}{amishkin@cs.stanford.edu} \hspace{0.2cm} \href{https://cs.stanford.edu/~amishkin/}{www.cs.stanford.edu/\~{}amishkin/}}
-\par}
 %--------------------SECTIONS-----------------------------------
+\newenvironment{fourtable}{%
+    \begin{tabular}{p{.15\textwidth}p{.445\textwidth}p{.145\textwidth}p{.15\textwidth}}%
+}{%
+    \end{tabular}%
+}
 
-\spacing
+\newenvironment{threetable}{%
+    \begin{tabular}{p{.62\textwidth}p{.145\textwidth}p{.155\textwidth}}%
+}{%
+    \end{tabular}%
+}
+\newenvironment{threetableother}{%
+    \begin{tabular}{p{.205\textwidth}p{.56\textwidth}p{.14\textwidth}}%
+}{%
+    \end{tabular}%
+}
+\newenvironment{twotable}{%
+    \begin{tabular}{p{.205\textwidth}p{.72\textwidth}}%
+}{%
+    \end{tabular}%
+}
 
-\section{Research Interests}
+\vspace{2ex}
+\subsection{Employment}
 
-\begin{longtable}{L{0.98\linewidth}}
-    Optimization for machine learning, gradient-based methods, convergence of
-    algorithms, convex liftings, variational analysis of machine learning
-    models.
-\end{longtable}
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \mitem{2026--} 
+    Postdoctoral Researcher \hfill (starting 2026--10--01)\\
+    École Polytechnique Fédérale de Lausanne (EPFL), Switzerland\\
+    Advisor: Martin Jaggi
+\end{description}
 
-\vspace{0.5ex}
+\subsection{Education}
 
-\section{Education}
-\begin{longtable}
-    {R{1.8cm}|p{11cm}}
-    \textsc{2026}         & \textbf{PhD in Computer Science}, Stanford University          \\
-    { -- \hspace{0.2cm} } & Thesis: \textit{Convex Analysis of Non-Convex Neural Networks} \\
-    \textsc{2020}         & \textsc{Advisor:}
-    Dr.
-    Mert Pilanci                                                                           \\ \multicolumn{2}{c}{} \\ \textsc{2020} & \textbf{MSc in
-    Computer Science}, University of British Columbia                                      \\ { -- \hspace{0.2cm} } &
-       \textsc{Thesis}: \textit{Interpolation, Growth Conditions, and Stochastic
-    Gradient Descent}                                                                      \\ \textsc{2018} & \textsc{Advisor:} Dr.
-    Mark Schmidt                                                                           \\ \multicolumn{2}{c}{} \\ \textsc{2018} & \textbf{BSc in
-    Computer Science (Honours)}, University of British Columbia                            \\ { --
-    \hspace{0.2cm} }      & \textsc{Thesis:} \textit{Limited Memory Methods for
-    Variational Inference}                                                                 \\ \textsc{2013} & \textsc{Advisor:} Dr.
-       David Poole
-\end{longtable}
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \mitem{2026}
+    PhD. in Computer Science \hfill Oral Defense 2025--11--18\\
+    Stanford University, USA \hfill Degree conferred 2026--04--02\\
+    Thesis: Convex Analysis of Non-Convex Neural Networks\\
+    Advisor: Mert Pilanci
 
-\spacing
+    \mitem{2020}
+    MSc. in Computer Science \hfill Degree conferred 2020--11--01\\
+    University of British Columbia (UBC), Canada	\\
+    Thesis: Interpolation, Growth Conditions, and Stochastic Gradient Descent \\
+    Advisor: Mark Schmidt
 
-\section{Research Experience}
-\begin{longtable}
-    {R{1.8cm}|L{11.8cm}}
-    \textsc{May - Aug}  & \textbf{Research Intern}, The Voleon Group                                     \\
-    2025                & \textsc{Advisors:} Dr. Sahand Negahban and Dr. Deepak Rajan                    \\
-                        & {\small Investigated impact estimation in portfolio
-            optimization. Received return offer.}
+    \mitem{2018} 
+    BSc. in Computer Science \hfill Degree conferred 2018--05--01\\
+    University of British Columbia (UBC), Canada \\
+    Advisor: David Poole
+\end{description}
+
+\subsubsection{Research Experience}
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \item[2025]
+          \textbf{Research Intern}, The Voleon Group, USA  \hfill (2025--05--13 to 2025--08--01)
+          \\
+          Advisors: Sahand Negahban and Deepak Rajan
+    \item[2024]
+          \textbf{Visiting PhD Student}, Inria Sierra Team, France \hfill (2024--07--01 to 2024--12--31) 
+          \\
+          Advisor: Francis Bach 
+    \item[2023]
+          \textbf{Predoctoral Researcher}, Flatiron Institute, USA \hfill (2023--06--01 to 2023--08--11) 
+          \\
+          Advisors: Robert Gower and Alberto Bietti 
+    \item[2019]
+          \textbf{Applied Science Intern}, Amazon Development Centre Berlin, Germany \hfill (2019--05--01 to 2019--08--31) 
+          \\
+          Advisors: Cédric Archambeau and Matthias Seeger
+    \item[2018]
+          \textbf{Research Intern}, RIKEN AIP Centre, Japan \hfill (2018--01--01 to 2019--06--31) 
+          \\
+          Advisors: Emtiyaz Khan 
+\end{description}
+
+\subsubsection{Other Experience}
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \item[2017]
+          \textbf{NSERC Undergraduate Research Assistant}, UBC, Canada  \hfill (2017--05--01 to 2017--08--31)
+          \\
+          Advisors: David Poole and Giuseppe Carenini
+    \item[2016]
+          \textbf{NSERC Undergraduate Research Assistant}, UBC, Canada  \hfill (2016--05--01 to 2016--08--31)
+          \\
+          Advisors: David Poole and Giuseppe Carenini
+    \item[2015]
+          \textbf{Co-op Student}, MacDonald, Detwiler, and Associates, Canada \hfill (2015--05--01 to 2015--12--31) 
+\end{description}
+
+\vspace{2ex}
+
+\subsection{Publications
+    \texorpdfstring{\hfill {\normalfont\small * denotes equal contribution.}}{}
+}
+
+\subsubsection{In preparation/submission}
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \mitem{2026}
+    \textit{Analyzing and Improving Greedy 2-Coordinate Updates for
+        Equality-Constrained Optimization via Steepest Descent in the 1-Norm.}\\
+    A. V. Ramesh$^{*}$, \textbf{A. Mishkin}$^{*}$, M. Schmidt, Y. Zhou, J. W.
+    Lavington, and J. She\\
+    In preparation.
+    %\href{https://arxiv.org/abs/2402.19449}{arxiv:2402.19449}
+\end{description}
+
+\subsubsection{Refereed Papers}
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \mitem{2026\\[.25em] TMLR}
+    \textit{Glocal Smoothness: Line search and adaptive sizes can help in theory too!}\\
+    C. Fox, \textbf{A. Mishkin}, S. Vaswani, M. Schmidt\\
+    Transactions on Machine Learning Research (TMLR) 2026
+
+    \mitem{2026\\[.25em] SIMODS}
+    \textit{A Library of Mirrors: Deep Neural Nets in Low Dimensions are Convex
+        Lasso Models with Reflection Features.}\\
+    E. Zeger, Y. Wang, \textbf{A. Mishkin}, T. Ergen, E. Candès, M.  Pilanci\\
+    SIAM Journal on Mathematics of Data Science (SIMODS) 2026
+
+    \mitem{2025\\[.25em] AISTATS}
+    \textit{Level Set Teleportation: An Optimization Perspective}\\
+    {\bf A. Mishkin}, A. Bietti, R. M. Gower\\
+    International Conference on Artificial Intelligence and Statistics (AISTAT) 2025
+    \hfill 
+
+    \mitem{2025\\[.25em] ICLR}
+    \textit{Exploring the Loss Landscape of Regularized Neural Networks via Convex Duality}
+    \hfill {\bf Oral}
     \\
-    \multicolumn{2}{c}{}                                                                                 \\
-    \textsc{July - Dec} & \textbf{Visiting PhD Student}, SIERRA Team, Inria                              \\
-    2024                & \textsc{Advisor:}
-    Dr.  Francis Bach                                                                                    \\
-                        & {\small Worked independently on an empirical and
-            theoretical investigation of the convergence of gradient
-            flows for two-layer ReLU networks with scalar input data.}
-    \\
-    \multicolumn{2}{c}{}                                                                                 \\
-    \textsc{June - Aug} & \textbf{Predoctoral Researcher}, CCM, Flatiron Institute                       \\
-    2023                & \textsc{Advisors:}
-    Dr.
-    Robert Gower and Dr.
-    Alberto Bietti                                                                                       \\
-                        & {\small
-            Led two projects as an intern: one developed new
-            convergence bounds for gradient descent under
-            directional smoothness (NeurIPS 2024), while the
-            other developed practical algorithms and analysis for level set
-            teleportation (AISTATS 2025).
-    }                                                                                                    \\ \multicolumn{2}{c}{} \\
-    \textsc{May - Aug}  & \textbf{Applied Science Intern}, Amazon Development Center Germany             \\
-    2019                & \textsc{Advisors:}
-    Dr.
-    Cédric Archambeau and Dr.
-    Matthias Seeger                                                                                      \\
-                        & {\small Investigated meta-learning approaches to
-            cold-start active learning.
-            Implemented foMAML, prototypical networks, and conditional neural
-            adaptive processes (CNAPS).
-    }                                                                                                    \\ \multicolumn{2}{c}{} \\
-    \textsc{Jan - Jun}  & \textbf{Research Intern}, RIKEN Center for Advanced Intelligence Project (AIP) \\
-    2018                & \textsc{Advisor:}
-    Dr.
-    Emtiyaz Khan                                                                                         \\
-                        & {\small Co-led development of SLANG, a stochastic,
-            approximate natural gradient method for Gaussian
-            variational inference in neural networks (NeurIPS 2018).}
-\end{longtable}
+    S. Kim, {\bf A. Mishkin}, M. Pilanci\\
+    International Conference on Learning Representations (ICLR) 2025
 
-\newpage
+    \mitem{2024\\[.25em] NeurIPS}
+    \textit{Directional Smoothness and Gradient Methods: Convergence and Adaptivity}\\
+    {\bf A. Mishkin}$^*$, A. Khaled$^*$, Y. Wang, A. Defazio, R. M. Gower\\
+    Advances in Neural Information Processing Systems (NeurIPS) 2024
 
-\section{Other Experience}
-\begin{longtable}{R{1.8cm}|L{11.8cm}}
-    \textsc{May - Aug} & \textbf{Undergraduate Research Assistant}, UBC
-    \\ 2016/17 & \textsc{Advisors:} Dr.  David Poole and Dr.
-    Giuseppe Carenini                                                       \\
-                       & {\small Received two undergraduate research awards
-            from NSERC to investigate information visualizations for
-            preference elicitation and
-            develop \href{http://www.cs.ubc.ca/group/iui/VALUECHARTS/}{Web
-                ValueCharts}.  }
-    \\
-    \multicolumn{2}{c}{}                                                    \\
-    \textsc{May - Dec} & \textbf{Software Engineering Co-op Student},
-    MacDonald, Dettwiler and Associates                                     \\
-    2015
-                       & {\small Acted as a full member of a small team to
-            develop a client for ordering satellite imagery.
-            Implemented the map interface for the RADARSAT
-            Constellation Mission.  }
-\end{longtable}
+    \mitem{2023\\[.25em] ICML}
+    \textit{Optimal Sets and Solution Paths of ReLU Networks}\\
+    {\bf A. Mishkin}, M. Pilanci\\
+    International Conference on Machine Learning (ICML) 2023
 
-\spacing
+    \mitem{2022\\[.25em] ICML}
+    \textit{Fast Convex Optimization for Two-Layer ReLU Networks}\\
+    {\bf A. Mishkin}, A. Sahiner, M. Pilanci\\
+    International Conference on Machine Learning (ICML) 2022
 
-\section{Awards and Fellowships}
+    \mitem{2019\\[.25em] NeurIPS}
+    \textit{Painless Stochastic Gradient: Interpolation, Line-Search, and Convergence Rates}\\
+    S. Vaswani, {\bf A. Mishkin}, I. H. Laradji, M. Schmidt, G. Gidel, S. Lacoste-Julien\\
+    Advances in Neural Information Processing Systems (NeurIPS) 2019
 
-\begin{longtable}
-    {R{1.8cm}|L{11.8cm}}
-    \multicolumn{2}{c}{\large \textbf{Postdoc} \hspace{11cm} }                                        \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2026       & \textbf{Canada Postdoctoral Research Award Program (PDRA)} \hfill {(Declined)}       \\
-               & Natural Sciences and Engineering Research Council of Canada (NSERC)                  \\
-               & {\small  Two-year fellowship for post-doctoral scholars at Canadian
-    institutions. }                                                                                   \\
-    \multicolumn{2}{c}{}                                                                              \\
-
-    \multicolumn{2}{c}{\large \textbf{PhD} \hspace{11cm} }                                            \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2025       & \textbf{Best Poster}                                                                 \\
-               & International Conference on Continuous Optimization (ICCOPT)                         \\
-               & {\small For ``Directional Smoothness and Gradient Methods:
-    Convergence and Adaptivity''. }                                                                   \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2024       & \textbf{Visiting Student Research Fellowship}                                        \\
-               & France-Stanford Center for Interdisciplinary Studies                                 \\
-               & {\small  Awarded to support a research visit to the SIERRA
-    team at Inria Paris. }                                                                            \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2020       & \textbf{Graduate Research Fellowship (GRF)}                                          \\
-               & National Sciences Foundation (NSF)                                                   \\
-               & {\small  Five-year fellowship for PhD students in STEM disciplines. }                \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2020       & \textbf{Postgraduate Scholarships-Doctoral Program (PGS D)} \hfill                   \\
-               & Natural Sciences and Engineering Research Council of Canada (NSERC)                  \\
-               & {\small  Three-year fellowship for PhD students studying in Canada or abroad. }      \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2020       & \textbf{Canada Graduate Scholarships-Doctoral Program (CGS D)} \hfill {(Declined)}   \\
-               & Natural Sciences and Engineering Research Council of Canada (NSERC)                  \\
-               & {\small  Three-year fellowship for PhD students studying in Canada. }                \\
-    \multicolumn{2}{c}{}                                                                              \\
-    %%
-    \multicolumn{2}{c}{\large \textbf{MSc} \hspace{11cm} }                                            \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2019       & \textbf{Huawei Graduate Scholarship}                                                 \\
-               & Huawei and Department of Computer Science, UBC                                       \\
-               & {\small  Competitive scholarship for MSc students entering their second year. }      \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2018       & \textbf{Computer Science Merit Scholarship}                                          \\
-               & Department of Computer Science, UBC                                                  \\
-               & {\small  Merit-based scholarship for incoming international and domestic students. } \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2018       & \textbf{Canada Graduate Scholarships-Master’s Program (CGSM)}                        \\
-               & Natural Sciences and Engineering Research Council of Canada (NSERC)                  \\
-               & {\small National fellowship awarded to up to 2,500 students annually. }              \\
-    \multicolumn{2}{c}{}                                                                              \\
-    \multicolumn{2}{c}{\large \textbf{BSc} \hspace{11cm} }                                            \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2018       & \textbf{Academic Award of Excellence (Honors)}                                       \\
-               & Department of Computer Science, UBC                                                  \\
-               & {\small Awarded to the graduating student with the highest standing
-    in the BSc (Honors) in Computer Science. }                                                        \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2018       & \textbf{Markus Meister Memorial Prize}                                               \\
-               & Department of Computer Science, UBC                                                  \\
-               & {\small Awarded to the graduating student with the highest standing
-    in the final year of the BSc in Computer Science. }                                               \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2017       & \textbf{D.
-        F.
-    MacKenzie Scholarship}                                                                            \\
-               & UBC                                                                                  \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2016, 2017 &
-    \textbf{Undergraduate Student Research Award (USRA)}                                              \\
-               & Natural Sciences and
-    Engineering Research Council of Canada (NSERC)                                                    \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2016, 2017 &
-    \textbf{Computer Science Scholarship}                                                             \\
-               & Department of Computer Science, UBC
-    \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2016, 2017 & \textbf{Trek Excellence Scholarship
-    for Continuing Students}                                                                          \\
-               & UBC                                                                                  \\
-               & {\small Awarded to students in the top 5\% of their
-    undergraduate year, faculty, and school.  }                                                       \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2016       & \textbf{J Fred Muir Memorial Scholarship}                                            \\
-               & UBC                                                                                  \\
-    \multicolumn{2}{c}{}                                                                              \\
-    \multicolumn{2}{c}{\large \textbf{General} \hspace{11cm} }                                        \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2018       & \textbf{Travel Award for NeurIPS 2018}                                               \\
-               & Neural Information Processing Systems (NeurIPS) Foundation                           \\
-    \multicolumn{2}{c}{}                                                                              \\
-    2017       & \textbf{Best Demo}                                                                   \\
-               & UBC HCI Designing for People Year-end Event                                          \\
-               & {\small For a live demonstration of Web ValueCharts.}
-\end{longtable}
-
-\spacing
-
-\section{Publications}
-
-\vspace{1em}
-
-\subsection*{Preprints}
-
-\begin{longtable}{C{0.1\linewidth} L{0.88\linewidth}}
-    [FMV] & Curtis Fox, \textbf{Aaron Mishkin}, Sharan Vaswani, Mark Schmidt.  ``Glocal
-    Smoothness: Line Search can really help!''
-    \href{https://arxiv.org/abs/2506.12648}{[arXiv]}
-    \\
-    \multicolumn{2}{c}{}
-    \\
-
-    [RMS] &
-    Amrutha Varshini Ramesh*, \textbf{Aaron Mishkin}*, Mark Schmidt, Yihan
-    Zhou, Jonathan Wilder Lavington, and Jennifer She.  ``Analyzing and
-    Improving Greedy 2-Coordinate Updates for Equality-Constrained Optimization
-    via Steepest Descent in the 1-Norm.''
-    \href{https://arxiv.org/abs/2307.01169}{[arXiv]}                                    \\
-\end{longtable}
-
-\subsection*{Refereed Papers}
-
-\begin{longtable}{C{0.1\linewidth} L{0.88\linewidth}}
-    [ZWM26]     & Emi Zeger, Yifei Wang, \textbf{Aaron Mishkin}, Tolga Ergen, Emmanuel
-    Candès, and Mert Pilanci. ``A Library of Mirrors: Deep Neural Nets in Low
-    Dimensions are Convex Lasso Models with Reflection Features.''
-    SIAM Journal on Mathematics of Data Science, 2026.
-    \href{https://arxiv.org/abs/2403.01046}{[arXiv]}
-    \\
-    \multicolumn{2}{c}{}                                                                      \\
-
-    [MBG25]     & \textbf{Aaron Mishkin}, Alberto Bietti, Robert Gower. ``Level Set
-    Teleportation: An Optimization Perspective''. Artificial Intelligence and
-    Statistics (AISTATS), 2025. \href{https://arxiv.org/abs/2403.03362}{[arXiv]}
-    \\
-    \multicolumn{2}{c}{}                                                                      \\
-
-    [KMP25]     & Sungyoon Kim, \textbf{Aaron Mishkin}, Mert Pilanci. ``Exploring the loss
-    landscape of regularized neural networks via convex duality''.
-    International Conference on Learning Representations (ICLR), 2025.
-    \href{https://arxiv.org/abs/2411.07729}{[arXiv]}
-    \\
-    \multicolumn{2}{c}{}                                                                      \\
-
-    [MKW24]\!\! & \textbf{Aaron Mishkin}*, Ahmed Khaled*, Yuanhao Wang, Aaron Defazio, Robert
-    Gower. ``Directional Smoothness and Gradient Methods: Convergence and
-    Adaptivity'' \textit{Neural Information Processing Systems (NeurIPS)},
-    2024. \href{https://arxiv.org/abs/2403.04081}{[arXiv]}                                    \\
-    \multicolumn{2}{c}{}                                                                      \\
-
-    [MP23]      & \textbf{Aaron Mishkin}, Mert Pilanci. ``Optimal Sets and Solution Paths of
-    ReLU Networks'' \textit{International Conference on Machine Learning
-        (ICML)}, 2023. \href{https://arxiv.org/abs/2306.00119}{[arXiv]}
-    \\
-    \multicolumn{2}{c}{}                                                                      \\
-
-    [MSP22]     & \textbf{Aaron Mishkin}, Arda Sahiner, Mert Pilanci. ``Fast Convex
-    Optimization for Two-Layer ReLU Networks: Equivalent Model Classes and Cone
-    Decompositions'' \textit{International Conference on Machine Learning
-    (ICML)}, 2022. \href{https://arxiv.org/abs/2202.01331}{[arXiv]}                           \\
-    \multicolumn{2}{c}{}                                                                      \\
-
-    %%
-    [VML19]     & Sharan Vaswani, \textbf{Aaron Mishkin}, Issam Laradji, Mark Schmidt,
-    Gauthier Gidel, and Simon Lacoste-Julien.  ``Painless Stochastic Gradient:
-    Interpolation, Line-Search, and Convergence Rates.'' \textit{Neural
-        Information Processing Systems (NeurIPS)}, 2019.
-    \href{https://arxiv.org/abs/1905.09997}{[arXiv]}
-    \\
-    \multicolumn{2}{c}{}                                                                      \\
-
-    %%
-    [MKN18]\!\! & \textbf{Aaron Mishkin}, Frederik Kunstner, Didrik Nielsen, Mark Schmidt,
-    and Mohammad Emtiyaz Khan. ``SLANG: Fast Structured Covariance
-    Approximations for Bayesian Deep Learning with Natural-Gradient'',
-    \textit{Neural Information Processing Systems (NeurIPS)}, 2018.
-    \href{https://arxiv.org/abs/1811.04504}{[arXiv]}
-\end{longtable}
-
-\subsection*{Book Chapters}
-
-\begin{longtable}{C{0.1\linewidth} L{0.88\linewidth}}
-    [MKM22]\!\! & Kevin P.  Murphy, Frederik Kunstner, Si Yi Meng, \textbf{Aaron Mishkin},
-    Sharan Vaswani, and Mark Schmidt.  \textbf{Chapter 8: Optimization} in
-    \textit{Probabilistic Machine Learning: An Introduction}.  MIT press, 2022.
-\end{longtable}
-
-\subsection*{Workshop Papers}
-
-\begin{longtable}{C{0.1\linewidth} L{0.88\linewidth}}
-    [MKD23]\!\! & \textbf{Aaron Mishkin}*, Ahmed Khaled*, Aaron Defazio, Robert Gower. ``A
-    Novel Analysis of Gradient Descent Under Directional Smoothness''
-    \textit{NeurIPS OPT2023}, 2023.
-    \href{https://opt-ml.org/papers/2023/paper77.pdf}{[pdf]}                                \\
-    \multicolumn{2}{c}{}                                                                    \\
-
-    [MBG23]     & \textbf{Aaron Mishkin}, Alberto Bietti, Robert Gower. ``Level Set
-    Teleportation: the Good, the Bad, and the Ugly'' \textit{NeurIPS OPT2023},
-    2023. \href{https://opt-ml.org/papers/2023/paper35.pdf}{[pdf]}
-    \\
-    \multicolumn{2}{c}{}                                                                    \\
-
-    [MP22]      & \textbf{Aaron Mishkin}, Mert Pilanci. ``The Solution Path of the Group
-    Lasso'' \textit{NeurIPS OPT2022}, 2022.
-    \href{https://opt-ml.org/papers/2022/paper63.pdf}{[pdf]}
-    \\
-    \multicolumn{2}{c}{}                                                                    \\
-
-    %%
-    [RMS22]     & Amrutha Varshini Ramesh, \textbf{Aaron Mishkin}, Mark Schmidt.  ``Fast
-    Convergence of Greedy 2-Coordinate Updates for Optimizing with an Equality
-    Constraint'' \textit{NeurIPS OPT2022}, 2022.
-    \href{https://opt-ml.org/papers/2022/paper82.pdf}{[pdf]}
-    \\
-    \multicolumn{2}{c}{}                                                                    \\
-
-    %%
-    [VBG20]     & Sharan Vaswani, Reza Babanezhad, Jose Gallego, \textbf{Aaron Mishkin},
-    Simon Lacoste-Julien, and Nicolas Le Roux.  ``To Each Optimizer a Norm, to
-    Each Norm its Generalization.'' \textit{NeurIPS OPT2020}, 2020.
-    \href{https://arxiv.org/abs/2006.06821}{[arXiv]}
-    \\
-    \multicolumn{2}{c}{}                                                                    \\
-
-    %%
-    [M17]       & \textbf{Aaron Mishkin}. ``Web ValueCharts: Analyzing Individual and Group
-    Preferences with Interactive, Web-based Visualizations'', Extended Abstract
-    in \textit{Review of Undergraduate Computer Science}, 2017.
-    \href{https://www.cs.ubc.ca/~amishkin/amishkinVCExtendedAbstract.pdf}{[pdf]}
-\end{longtable}
-\vspace{-1ex}
-
-* Denotes equal contribution.
-
-\spacing
-
-\section{Presentations}
-
-\vspace{1em}
-
-\subsection*{Contributed and Invited Talks}
-
-\renewcommand{\arraystretch}{0.65}
-
-\begin{longtable}{C{0.05\linewidth} L{0.93\linewidth}}
-    \talknum &
-    ``Global Optimization of Deep Relu Networks Using Convex Reformulations''. 
-    SIAM Conference on Optimization (OP26),
-    June 2026.
-    \href{https://github.com/aaronpmishkin/talk-siam-op26}{[slides]}
-    \\
-
-    \multicolumn{2}{c}{} \\
-    \talknum &
-    ``Convex Analysis of Non-Convex Neural Networks''. Oxford Mathematical Institute,
-    January 2026.
-    \href{https://cs.stanford.edu/~amishkin/assets/slides/amishkin_phd_defense.pdf}{[slides]}
-    \\
-    \multicolumn{2}{c}{} \\
-
-    \talknum &
-    ``Level Set Teleportation: An Optimization Perspective''. EPFL MLO Group, January 2026.
-    \href{https://github.com/aaronpmishkin/teleport-talk}{[slides]}
-    \\
-    \multicolumn{2}{c}{} \\
-
-    \talknum &
-    ``Convex Analysis of Non-Convex Neural Networks''. Inria Sierra Team,
-    January 2026.
-    \href{https://cs.stanford.edu/~amishkin/assets/slides/amishkin_phd_defense.pdf}{[slides]}
-    \\
-    \multicolumn{2}{c}{} \\
-
-    \talknum &
-    ``Optimal Sets and Solution Paths of ReLU Networks''. SIAM \href{https://siamncc25.lbl.gov}{NCC25},
-    October 2025.
-    \href{https://github.com/aaronpmishkin/talk-ncc25}{[slides]}
-    \\
-    \multicolumn{2}{c}{} \\
-
-    \talknum &
-    ``Level Set Teleportation: An Optimization Perspective''. Montreal MLOpt Seminar, January 2025.
-    \href{https://github.com/aaronpmishkin/teleport-talk}{[slides]}
-    \\
-    \multicolumn{2}{c}{} \\
-
-    \talknum &
-    ``Optimal Sets and Solution Paths of ReLU Networks''. EPFL MLO Group, November 2024.
-    \href{https://github.com/aaronpmishkin/talk-mml}{[slides]}
-    \\
-    \multicolumn{2}{c}{} \\
-
-    \talknum &
-    ``Level Set Teleportation: An Optimization Perspective. MPI Intelligent Systems/ELLIS Institute, August 2024.
-    \href{https://github.com/aaronpmishkin/teleport-talk}{[slides]}
-    \\
-    \multicolumn{2}{c}{} \\
-
-    \talknum &
-    ``Optimal Sets and Solution Paths of ReLU Networks''. \href{https://www.mis.mpg.de/events/series/math-machine-learning-seminar-mpi-mis-ucla}{Math Machine Learning Seminar MPI MIS + UCLA}, January 2024.
-    \href{https://cs.stanford.edu/~amishkin/assets/slides/amishkin_mml_seminar.pdf}{[slides]}
-    \href{https://www.mis.mpg.de/events/event/optimal-sets-and-solution-paths-of-relu-networks}{[video]}
-    \\
-    \multicolumn{2}{c}{} \\
-
-    \talknum &
-    ``SGD Under Interpolation: Convergence, Line-search, and Acceleration''. \href{https://meetings.siam.org/sess/dsp_programsess.cfm?SESSIONCODE=76238}{SIAM OP23 Minisymposium on Adaptivity in Stochastic Optimization}, June 2023.
-    \href{https://cs.stanford.edu/~amishkin/assets/slides/siam_op23_slides.pdf}{[slides]}
-    \\
-    \multicolumn{2}{c}{} \\
-
-    \talknum &
-    ``Fast Convex Optimization for Two-Layer ReLU Networks. UBC Institute for Applied Mathematics, July 2022.
-    \href{https://github.com/aaronpmishkin/talk-iam_seminar_scnn}{[slides]}
-    \\
-    \multicolumn{2}{c}{} \\
-
-    \talknum &
-    ``Painless Stochastic Gradient: Interpolation, Line-Search, and Convergence Rates''. Machine Learning Summer School (MLSS) 2020, July 2020 (Virtual).
-    \href{https://cs.stanford.edu/~amishkin/assets/slides/painless_mlss_version.pdf}{[slides]}
-    \href{https://www.youtube.com/watch?v=IchhE4JXLE4}{[video]}
-\end{longtable}
-
-\newpage
-
-\subsection*{Miscellaneous Talks}
-
-\begin{longtable}{C{0.05\linewidth} L{0.93\linewidth}}
-    \talknum &
-    ``Instrumental Variables, DeepIV, and Forbidden Regressions: Learning to
-    evaluate counterfactuals via instrumental variables.''
-    UBC MLRG, Spring 2020.
-    \href{https://cs.stanford.edu/~amishkin/assets/slides/instrumental_variables.pdf}{[slides]}
-    \\
-    \multicolumn{2}{c}{} \\
-
-    \talknum &
-    ``Why Does Deep Learning Work?''
-    UBC MLRG, Autumn 2019.
-    \href{https://cs.stanford.edu/~amishkin/assets/slides/deep_learning_works.pdf}{[slides]}
-    \\
-    \multicolumn{2}{c}{} \\
-
-    \talknum &
-    ``Generative Adversarial Networks.''
-    UBC MLRG, Spring 2019.
-    \href{https://cs.stanford.edu/~amishkin/assets/slides/gans.pdf}{[slides]}
-    \\
-    \multicolumn{2}{c}{} \\
-
-    \talknum &
-    ``Standard and Natural Policy Gradients for Discounted Rewards.''
-    UBC MLRG, Autumn 2019.
-    \href{https://cs.stanford.edu/~amishkin/assets/slides/policy_gradients.pdf}{[slides]}
-    \\
-    \multicolumn{2}{c}{} \\
-
-    \talknum &
-    ``Web ValueCharts: Exploring Individual and Group Preferences
-    Through Interactive Web-based Visualizations.'' CUCSC 2017, Summer 2017.
-    \\
-    \multicolumn{2}{c}{} \\
-
-    \talknum &
-    ``Web ValueCharts: Supporting Decision Makers with Interactive, Web-Based Visualizations.''
-    MURC 2017, Spring 2017.
-    \href{https://cs.stanford.edu/~amishkin/assets/slides/policy_gradients.pdf}{[slides]}
-\end{longtable}
-
-\renewcommand{\arraystretch}{1}
-
-\section{Teaching}
-
-\begin{longtable}
-    {R{1.8cm}|L{11.8cm}}
-    \textsc{Apr - Jun}
-     & \textbf{TA}, EE 364B: Convex Optimization II (Stanford University)      \\
-    \vspace{0.3cm}2022-2025
-     & {\small Prepared homework and exam questions, held weekly office hours,
-            and supervised assignment graders for a graduate-level class on convex
-    optimization algorithms.}                                                  \\
-    \multicolumn{2}{c}{}                                                       \\
-    \textsc{ Jun 2018}
-     & \textbf{TA}, Data Science Summer School (DS3) 2018                      \\
-     & {\small Prepared and delivered exercises on stochastic variational
-            inference for graduate students attending a two day tutorial on
-    approximate Bayesian inference.}                                           \\
-    \multicolumn{2}{c}{}                                                       \\
-    \textsc{Sep - Dec}
-     & \textbf{TA}, CPSC 340: Machine Learning                          (UBC)  \\
-    \vspace{0.7cm} 2017
-     & {\small Gave tutorials on diverse topics in machine learning, including
-            regularization, convexity, and MAP estimation.  Held weekly office hours
-            for students, marked assignments and invigilated exams.  }
-    \\
-    \multicolumn{2}{c}{}                                                       \\
-    \textsc{Jan - May}
-     & \textbf{TA}, CPSC 210: Software Construction                     (UBC)  \\
-    \vspace{0.2cm}2015
-     & {\small Supervised laboratories for a software engineering course on
-            object-oriented programming and design in the Java programming language.}
-    \\
-    \multicolumn{2}{c}{}                                                       \\
-    \textsc{Sep - Dec}
-     & \textbf{TA}, CPSC 110: Computation, Programs and Programming     (UBC)  \\
-    \vspace{0.3cm}2014
-     & {\small Taught the fundamental concepts of functional programming in a
-            Lisp-family language during weekly labs.}
-\end{longtable}
-
-\spacing
-
-%
-% \section{Conference Attendence}
-% \begin{longtable}{R{1.8cm}|L{11.8cm}}
-% 	Dec 2019 & Neural Information Processing Systems (NeurIPS), Vancouver, Canada. \\ & {\small \textbf{Poster:} \textit{Painless Stochastic Gradient: Interpolation, Line-Search, and Convergence Rates}}\\ \multicolumn{2}{c}{} \\
-% 	Aug 2019 & International Conference on Continuous Optimization (ICCOPT), Berlin, Germany. \\ \multicolumn{2}{c}{} \\
-% 	Dec 2018 & Neural Information Processing Systems (NeurIPS), Montreal, Canada. \\ & {\small \textbf{Poster:} \textit{SLANG: Fast Structured Covariance Approximations for Bayesian Deep Learning with Natural Gradient}}\\ \multicolumn{2}{c}{} \\
-% 	% Sep 2017 & Undergraduate Research Opportunities Conference, Waterloo, Canada. \\ \multicolumn{2}{c}{} \\
-% 	Jun 2017 & Canadian Undergraduate Computer Science Conference, Toronto, Canada. \\ & {\small \textbf{Talk:} \textit{Web ValueCharts: Exploring Individual and Group Preferences through Interactive, Web-based Visualizations}}\\ \multicolumn{2}{c}{} \\
-% 	Mar 2017 & Multi-Disciplinary Undergraduate Research Conference, Vancouver, Canada. \\ & {\small \textbf{Talk:} \textit{Web ValueCharts: Supporting Decision Makers with Interactive, Web-based Visualizations}}
-% \end{longtable}
-
-\section{Academic Service}
+    \mitem{2018\\[.25em] NeurIPS}
+    \textit{SLANG: Fast Structured Covariance Approximations for Bayesian Deep Learning with Natural Gradient}\\
+    {\bf A. Mishkin*}, F. Kunstner*, D. Nielsen, M. Schmidt, M.E. Khan\\
+    Advances in Neural Information Processing Systems (NeurIPS) 2018
+\end{description}
 
 \vspace{1ex}
 
-\textbf{Reviewing}:
-NeurIPS, ICML, ICLR, AISTATS, JMLR, TMLR, SIMODS, and IEEE Transactions on Information Theory.
+\subsubsection{Book Chapters}
 
-\textbf{Reviewer Awards}: NeurIPS (2020, 2022, 2023, 2025), ICML (2021, 2022,
-2024, 2025), ICLR (2022), and AISTATS (2022, 2025).
-I have also been a TMLR Expert Reviewer since 2024 and was an ICML Expert Reviewer
-in 2021.
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \mitem{2022\\[.25em]} 
+    %Contribution to book chapter\\
+    \textit{Probabilistic Machine Learning: An Introduction}, K.P. Murphy, MIT Press, March 2022.\\
+    Contributors: F. Kunstner, S.Y. Meng, \textbf{A. Mishkin}, S. Vaswani, M. Schmidt.\\
+    Relevant Section: Chapter 8, \textit{Optimization}.
+\end{description}
 
-\textbf{Mentorship}: During my PhD, I volunteered for the Stanford student
-application support program (SASP) and
-was a mentor for the Stanford CS undergraduate mentorship program and
-Stanford's \href{https://serio.stanford.edu}{SERIO} program.
+\vspace{1ex}
 
-%\newpage
-%\hypertarget{gmat}{\textsc{Gmat}\setmainfont{LMRoman10 Regular}\textregistered\setmainfont[SmallCapsFont=Fontin-SmallCaps]{Fontin-Regular}}
+\subsubsection{Workshop Papers}
 
-%\XeTeXpdffile ''GMAT.pdf'' page 1 scaled 800
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \mitem{2023\\[.25em] OptML}
+    \textit{A Novel Analysis of Gradient Descent under Directional Smoothness}\\
+    {\bf A. Mishkin}$^*$, A. Khaled$^*$, A. Defazio, R. M. Gower\\
+    {NeurIPS Workshop on Optimization for Machine Learning} 2023
 
-\end{document}
+    \mitem{2023\\[.25em] OptML}
+    \textit{Level Set Teleportation: the Good, the Bad, and the Ugly}\\
+    \textbf{A Mishkin}, A. Bietti, R. M. Gower\\
+    {NeurIPS Workshop on Optimization for Machine Learning} 2023
+    % (\href{https://openreview.net/forum?id=7Ie3aoqJg1}{openreview:7Ie3aoqJg1})
+
+    \mitem{2022\\[.25em] OptML}
+    {\it The Solution Path of the Group Lasso}\\
+    \textbf{A. Mishkin}, M. Pilanci\\
+    {NeurIPS Workshop on Optimization for Machine Learning} 2022
+
+    \mitem{2022\\[.25em] OptML}
+    {\it Fast Convergence of Greedy 2-Coordinate Update for Optimizing with an Equality Constraint}\\
+    A. V. Ramesh, {\bf A. Mishkin}, Mark Schmidt\\
+    {NeurIPS Workshop on Optimization for Machine Learning} 2022
+    % (\href{https://arxiv.org/abs/2304.13960}{arxiv:2304.13960})
+
+    \mitem{2020\\[.25em] OptML}
+    {\it To Each Optimizer a Norm, to Each Norm its Generalization}\\
+    S. Vaswani, R. Babanezhad, J. Gallego, {\bf A. Mishkin}, S. Lacoste-Julien, N. Le Roux\\
+    {NeurIPS Workshop on Optimization for Machine Learning} 2020
+\end{description}
+
+\vspace{2ex}
+\subsection{Highlighted Research}
+
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+
+    \mitem{1.}
+
+    \textit{Optimal Sets and Solution Paths of ReLU Networks.}\\
+    {\bf A.  Mishkin}, M. Pilanci, ICML 2023.
+
+    This paper originated from a short proof showing that the solution path (the
+    mapping from regularization parameter to optimal model) can be
+    discontinuous for very narrow ReLU networks.
+    This result is concerning because standard machine learning
+    practice is to tune the regularization with grid-search, but 
+    grid-search cannot have any theoretical guarantee when the solution path 
+    is discontinuous.
+    Trying to understand this behavior led us to study the structure of optimal
+    two-layer ReLU using convex reformulations. 
+    Using this approach, we show how to exactly characterize the optimal set
+    for two-layer ReLU networks and, as
+    a consequence, we also derive an optimal neuron pruning algorithm.
+    This pruning method relies on a novel representation of neuron-sparse
+    networks as extreme points of a ``optimal polyhedron''. 
+    A follow-up project with Sungyoon Kim received an oral at ICLR for
+    leveraging our work to understand mode connectivity.
+
+    \mitem{2.}
+    \textit{Directional Smoothness and Gradient Methods: Convergence and
+        Adaptivity.} \\
+    {\bf A. Mishkin}$^*$, A. Khaled$^*$, Y. Wang, A. Defazio, R. M. Gower, NeurIPS 2024
+
+    The goal of this work is to bring the analysis of gradient methods down
+    to the level of the objective function being optimized.
+    To achieve this, we describe the convergence of gradient descent using
+    \emph{directional smoothness functions}, which replace global Lipschitz
+    continuity of the gradient with point-wise smoothness between the specific iterates
+    generated by the optimizer.
+    This allows us to study objectives which do not have Lipschitz gradients
+    (ReLU networks, for example) and leads to rigorous convergence bounds which
+    are an order of magnitude tighter than standard rates.
+    These rates are also path-dependent, meaning that they capture the distinct
+    behavior of each exact execution of gradient descent.
+    Unlike other path-dependent approaches, our bounds can be evaluated
+    in hindsight and used to compare algorithms.
+
+    \mitem{3.}
+    \textit{Painless Stochastic Gradient: Interpolation, Line-Search, and
+        Convergence Rates} \\
+    S. Vaswani, {\bf A. Mishkin}, I. H. Laradji, M. Schmidt, G. Gidel, S. Lacoste-Julien,
+    NeurIPS 2019
+
+    In this project, we circumvent hyper-parameter search
+    using the surprising observation that powerful machine learning models often
+    exactly fit, or \emph{interpolate}, their training data.
+    In such cases, stochastic gradient descent shows a remarkable ``automatic
+    variance reduction'' property and can converge with a fixed step-size.
+    We show that SGD can also converge using a stochastic
+    line-search (SLS), which looks along a random gradient for a
+    step-size which leads to descent on average.
+    We prove that SLS obtains fast rates of convergence under interpolation
+    that match deterministic GD up to a constant factor.
+    This analysis was among the first to use interpolation conditions in
+    optimization and has been highly influential.
+
+\end{description}
+
+\vspace{2ex}
+\subsection{Awards}
+
+\subsubsection{Grants \& Fellowships}
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    % https://aistats.org/aistats2021/awards.html
+    \item[2026]
+          Canada Postgraduate Research Award Program (PDRA)
+          \hfill (Declined) \$140,000 CAD\\
+          Natural Sciences and Engineering Research Council (NSERC) of Canada
+    \item[2026]
+          \textit{Postdoctoral Research Associateship}
+          \hfill (Declined) \pounds83,272 GBP\\
+          Mathematical Institute, University of Oxford
+    \item[2024] Visiting Student Researcher Fellowship, \hfill \$7 200 USD\\
+          France-Stanford Center For Interdisciplinary Studies
+    \item[2020] Graduate Research Fellowship Program (GRFP) \hfill \$138,000 USD\\
+          National Sciences Foundation (NSF), USA
+    \item[2020] Postgraduate Scholarships-Doctoral Program \hfill \$66,000 CAD\\
+          Natural Sciences and Engineering Research Council (NSERC) of Canada
+    \item[2020] Canada Postgraduate Scholarships-Doctoral Program \hfill (Declined) \$105,000 CAD\\
+          Natural Sciences and Engineering Research Council (NSERC) of Canada
+    \item[2019] Huawei Graduate Scholarship \hfill \$5,000 CAD\\
+          Department of Computer Science, University of British Columba
+    \item[2018] Computer Science Merit Scholarship \hfill \$20,000 CAD\\
+          Department of Computer Science, University of British Columba
+    \item[2018] Alexander Graham Bell Canada Graduate Scholarships-Master's \hfill \$17,500 CAD\\
+          Natural Sciences and Engineering Research Council of Canada (NSERC)
+\end{description}
+
+\subsubsection{Scholarships \& Prizes}\nobreak
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \item[2025] Best Poster\\
+          ICCOPT 2025
+    \item[2018] Academic Award of Excellence (Honors)\\
+          Department of Computer Science, University of British Columba
+    \item[2018] Markus Meister Memorial Prize\\
+          Department of Computer Science, University of British Columba
+    \item[2018] Travel Award\\
+          NeurIPS Foundation
+    \item[2017] D. F. MacKenzie Scholarship\\
+          University of British Columba
+    \item[2017] Undergraduate Student Research Award\\
+          Natural Sciences and Engineering Research Council of Canada (NSERC)
+    \item[2017] Trek Excellence Scholarship for Continuing Students\\
+          University of British Columba
+    \item[2016] Best Demo\\
+          UBC HCI Designing for People Year-end Event
+    \item[2016] Undergraduate Student Research Award\\
+          Natural Sciences and Engineering Research Council of Canada (NSERC)
+    \item[2016] Trek Excellence Scholarship for Continuing Students\\
+          University of British Columba
+    \item[2016] J. Fred Muir Memorial Scholarship\\
+          University of British Columba
+\end{description}
+
+\subsubsection{Service} \hfill
+
+11x Outstanding Reviewer Awards
+\hfill	ICML (2021, 2022, 2024, 2025)
+
+\vspace{-1ex}
+\hfill NeurIPS (2020, 2022, 2023, 2025)
+
+\vspace{-1ex}
+\hfill ICLR (2022), AISTATS (2022, 2025)
+
+TMLR Expert Reviewer \hfill Since 2024.
+
+\vspace{2ex}
+
+\subsection{Invited Talks and visits}
+\newcommand{\where}[1]{{#1}}
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \item[2026] Global Optimization of Deep Relu Networks Using Convex Reformulations. \hfill Endinburgh, UK \\
+          SIAM Conference on Optimization (OP26)
+
+    \item[2026] Convex Analysis of Non-Convex Neural Networks.  \hfill Oxford, UK\\
+          Mathematical Institute, University of Oxford
+
+    \item[2026] Level Set Teleportation: An Optimization Perspective.  \hfill Lausanne, Switzerland\\
+          MLO Lab, EPFL
+
+    \item[2026] Convex Analysis of Non-Convex Neural Networks. \hfill Paris, France\\
+          Sierra Team, Inria
+
+    \item[2025] Optimal Sets and Solution Paths of ReLU Networks. \hfill Berkeley, USA\\
+          SIAM NCC25
+
+    \item[2025] Level Set Teleportation: An Optimization Perspective. \hfill Montreal, Canada\\
+          Montreal MLOpt Seminar, Mila
+
+    \item[2024] Optimal Sets and Solution Paths of ReLU Networks. \hfill Lausanne, Switzerland\\
+          MLO lab, EPFL
+
+    \item[2024] Level Set Teleportation: An Optimization Perspective. \hfill Tübingen, Germany\\
+          MPI Intelligent Systems and ELLIS Institute
+
+    \item[2024] Optimal Sets and Solution Paths of ReLU Networks. \hfill Virtual\\
+          Math Machine Learning Seminar MPI MIS + UCLA
+
+    \item[2023] SGD Under Interpolation: Convergence, Line-search, and Acceleration. \hfill Seattle, USA\\
+          SIAM Conference on Optimization (OP23)
+
+    \item[2022] Fast Convex Optimization for Two-Layer ReLU Networks. \hfill Vancouver, Canada\\
+          UBC Institute for Applied Mathematics (IAM)
+
+    \item[2020] Painless Stochastic Gradient: Interpolation, Line-Search, and Convergence Rates. \hfill Virtual\\
+          Machine Learning Summer School (MLSS) 202University of British Columbia\end{description}
+
+\vspace{2ex}
+
+\subsection{Service}
+
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \item[2026] \textbf{Organizer}, Minisymposium on Global Optimization for Neural Networks \\
+          SIAM Conference on Optimization (OP26)
+    \item[2024] \textbf{Organizer}, ``Optimization Lunch'' Talk Series\\
+          Department of Electrical Engineering, Stanford University
+    \item[2019] \textbf{Organizer}, Machine Learning Reading Group (MLRG)\\
+          Department of Computer Science, University of British Columbia
+\end{description}
+
+\vspace{2ex}
+
+\subsection{Volunteering}
+
+\begin{description}[leftmargin=\mleftsize,style=nextline,font=\normalfont\space]
+    \item[2025] Stanford SERIO Mentorship Program
+    \item[2025] Stanford CS Undergraduate Mentorship Program
+    \item[2025] Stanford Science Penpals Program
+    \item[2024] Stanford SERIO Mentorship Program
+    \item[2024] Stanford CS Undergraduate Mentorship Program
+    \item[2024] Stanford Student Application Support Program
+\end{description}
+
+\vspace{2ex}
+
+\subsection{Reviewing}
+\begin{description}[leftmargin=10em,style=nextline,font=\normalfont\space]
+    % \begin{description}[leftmargin=10em]
+    \item[NeurIPS] Neural Information Processing Systems (NeurIPS)\hfill 2019--2025
+    \item[ICML] International Conference on Machine Learning (ICML) \hfill 2021--2025
+    \item[ICLR] International Conference on Learning Representations \hfill 2022
+    \item[AISTATS] International Conference on Artificial Intelligence and Statistics \hfill 2022--2025
+    \item[TMLR] Transactions on Machine Learning Research \hfill 2023--2025
+    \item[JMLR] Journal of Machine Learning Research \hfill 2021, 2022
+    \item[Trans. Inf. Theory] IEEE Transactions on Information Theory \hfill 2024
+    \item[SIMODS] SIAM Journal on Mathematics of Data Science \hfill 2023
+    \item[OptML workshop] NeurIPS workshop: Optimization for Machine Learning \hfill 2023, 2024
+\end{description}
+
+\vspace{2ex}
+
+\subsection{Teaching Assistantships}
+
+\begin{itemize}[leftmargin=0pt,label={}]%,parsep=3pt,itemsep=0pt,topsep=0pt,partopsep=0pt,]
+    \item EE 364B: {\it Convex Optimization II},
+          Stanford University
+          \hfill \mute{Spring } 2022, 2023, 2024, 2025
+
+    \item \emph{Workshop on Bayesian Machine Learning}, Data Science Summer School (D3)
+          % (Mark Schmidt)
+          \hfill  2018
+
+    \item CPSC 340: {\it Machine Learning},
+          University of British Columbia 
+          \hfill \mute{Fall }2017
+
+    \item CPSC 210: {\it Software Construction},
+          University of British Columbia
+          \hfill \mute{Fall }2015
+
+    \item CPSC 210: {\it Computation, Programs, and Programming},
+          University of British Columbia
+          \hfill \mute{Fall }2014
+\end{itemize}
+
+\vspace{1ex}
+
+\subsection{Open Source Software}
+\begin{description}[leftmargin=6.5em,style=nextline,font=\normalfont\space]
+    \item[SCNN] 
+          A library for global optimization of two-layer ReLU networks using
+          convex reformulations.
+          \\
+          \texttt{\url{https://github.com/pilancilab/scnn}}
+\end{description}
